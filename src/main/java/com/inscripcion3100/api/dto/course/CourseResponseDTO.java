@@ -17,4 +17,5 @@ public class CourseResponseDTO {
     private Integer maxCapacity;
     private String shift;
     private String speciality;
+    private Integer availability;
 }
