@@ -25,7 +25,7 @@ public class Course {
     private Integer year;
 
     //true si es ciclo superior, falso si es ciclo basico
-    @Column(name = "advanced_cycle")
+    @Column(name = "advanced_cycle", nullable = false)
     private Boolean isAdvancedCycle;
 
     //anio de estudio - primero, segundo, tercero, cuarto, etc.
@@ -37,12 +37,14 @@ public class Course {
     @Column(name = "division", nullable = false)
     private Integer division;
 
+    /*TRATAR DE TENER CURSO Y DIVISION EN UN SOLO ENUM SI ES POSIBLE*/
+
     //turno del curso - MAÑANA, TARDE, VESPERTINO  (puede ser un enum)
     @Column(name = "shift", nullable = false)
     private String shift;
 
     //especialidad - ELECTRONICA - INFORMATICA
-    @Column(name = "speciality", nullable = false)
+    @Column(name = "speciality")
     private String speciality;
 
     //lugares disponibles (si se puede calcular, vuela)

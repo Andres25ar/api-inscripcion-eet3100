@@ -76,12 +76,22 @@ public class User {
      * ESTUDIOS ALCANZADOS (nullable)
      */
 
+    @Enumerated(EnumType.STRING)
+    @Column(name = "role", nullable = false)
+    private Role role;
+
+    @Enumerated(EnumType.STRING)
+    @Column(name = "studies_archived")
+    private StudiesAchieved studiesAchieved;
+
     //AUDITORIAS
+    /*
     @CreatedDate
     private LocalDateTime createdDate;
 
     @LastModifiedDate
     private LocalDateTime updatedDate;
+    */
 
     //RELACIONES
 }
