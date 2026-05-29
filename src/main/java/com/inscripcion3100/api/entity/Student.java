@@ -38,22 +38,22 @@ public class Student {
     private String lastName;
 
     //numero de telefono
-    @Column(name = "student_user_phone")
-    private String userPhone;
+    @Column(name = "student_phone")
+    private String studentPhone;
 
     @Column(name = "student_email")
-    private String email;
+    private String studentEmail;
 
     //fecha de nacimiento del alumno
-    @Column(name = "student_birthdate")
+    @Column(name = "student_birthdate", nullable = false)
     private Date studentBirthdate;
 
     //lugar de nacimiento del alumno
-    @Column(name = "student_birthplace")
+    @Column(name = "student_birthplace", nullable = false)
     private String birthplace;
 
     //direccion del alumno
-    @Column(name = "student_address")
+    @Column(name = "student_address", nullable = false)
     private String address;
 
     /*
