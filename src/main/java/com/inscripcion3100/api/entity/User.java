@@ -81,7 +81,7 @@ public class User {
     private Role role;
 
     @Enumerated(EnumType.STRING)
-    @Column(name = "studies_archived")
+    @Column(name = "studies_achieved")
     private StudiesAchieved studiesAchieved;
 
     //AUDITORIAS
@@ -93,5 +93,16 @@ public class User {
     private LocalDateTime updatedDate;
     */
 
-    //RELACIONES
+    /*
+     *  RELACIONES
+     */
+
+    @OneToMany(mappedBy = "tutor1")
+    private List<Student> studentsInCharge = new ArrayList<>();
+
+    @OneToMany(mappedBy = "receiver")
+    private List<NotificationForUser> userNotification = new ArrayList<>();
+
+    @OneToMany(mappedBy = "sender")
+    private List<Notification> notificationsSent = new ArrayList<>();
 }

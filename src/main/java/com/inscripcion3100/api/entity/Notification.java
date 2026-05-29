@@ -7,7 +7,9 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 import org.springframework.data.jpa.domain.support.AuditingEntityListener;
 
+import java.util.ArrayList;
 import java.util.Date;
+import java.util.List;
 
 @Setter
 @Getter
@@ -35,4 +37,11 @@ public class Notification {
     /*
      * RELACIONES
      */
+
+    @OneToMany(mappedBy = "notification")
+    private List<NotificationForUser> userNotification = new ArrayList<>();
+
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "sender")
+    private User sender;
 }

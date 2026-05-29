@@ -7,6 +7,9 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 import org.springframework.data.jpa.domain.support.AuditingEntityListener;
 
+import java.util.ArrayList;
+import java.util.List;
+
 @Setter
 @Getter
 @NoArgsConstructor
@@ -62,4 +65,6 @@ public class Course {
     /*
      *  RELACIONES
      */
+    @OneToMany(mappedBy = "course")
+    private List<RegistrationApplication> registrations = new ArrayList<>();
 }

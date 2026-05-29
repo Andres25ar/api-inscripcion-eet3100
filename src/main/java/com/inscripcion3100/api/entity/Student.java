@@ -7,7 +7,9 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 import org.springframework.data.jpa.domain.support.AuditingEntityListener;
 
+import java.util.ArrayList;
 import java.util.Date;
+import java.util.List;
 
 @Setter
 @Getter
@@ -59,4 +61,11 @@ public class Student {
     /*
      *  RELACIONES
      */
+
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "user_id")
+    private User tutor1;
+
+    @OneToMany (mappedBy = "student")
+    private List<RegistrationApplication> registrationApplications = new ArrayList<>();
 }
