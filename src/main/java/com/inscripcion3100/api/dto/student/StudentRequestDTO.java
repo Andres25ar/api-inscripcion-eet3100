@@ -12,7 +12,7 @@ import java.util.Date;
 @Getter
 @NoArgsConstructor
 @AllArgsConstructor
-public class StudenteRequestDTO {
+public class StudentRequestDTO {
     @NotNull(message = "Es necesario ingresar un DNI")
     @Positive(message = "No existe DNI negativo")
     @Min(value = 9999999, message = "Ingrese un DNI valido")

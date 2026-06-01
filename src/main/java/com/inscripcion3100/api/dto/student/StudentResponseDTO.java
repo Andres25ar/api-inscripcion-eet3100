@@ -1,9 +1,5 @@
 package com.inscripcion3100.api.dto.student;
 
-import jakarta.validation.constraints.Email;
-import jakarta.validation.constraints.NotNull;
-import jakarta.validation.constraints.Past;
-import jakarta.validation.constraints.Size;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -15,7 +11,8 @@ import java.util.Date;
 @Getter
 @NoArgsConstructor
 @AllArgsConstructor
-public class StudenteResponseDTO {
+public class StudentResponseDTO {
+    private Long studentId;
     private Long studentDni;
     private String studentCuil;
     private String lastName;

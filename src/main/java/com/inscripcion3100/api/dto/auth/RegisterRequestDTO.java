@@ -46,8 +46,6 @@ public class RegisterRequestDTO {
     @Past(message = "No puede ingresar una fecha futura")
     private LocalDate dateOfBirth;
 
-    private Set<String> roles;
-
     private String ocupation;
 
     private String relationship;

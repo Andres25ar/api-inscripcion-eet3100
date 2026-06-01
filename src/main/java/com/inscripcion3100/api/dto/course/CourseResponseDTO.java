@@ -10,6 +10,7 @@ import lombok.Setter;
 @NoArgsConstructor
 @AllArgsConstructor
 public class CourseResponseDTO {
+    private Long courseId;
     private Integer year;
     private Integer studyYear;
     private Integer division;
