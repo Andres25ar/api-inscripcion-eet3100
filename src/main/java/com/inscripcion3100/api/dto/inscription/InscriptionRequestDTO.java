@@ -26,10 +26,6 @@ public class InscriptionRequestDTO {
 
     private String institutionOfOrigin;
 
-    //private String pendingSubjects;
-
-    //private String pendingDocumentation;
-
     @NotNull(message = "Especifique si el establecimiento puede usar la imagen del alumno")
     private Boolean photoAuthorization;
 
@@ -38,7 +34,7 @@ public class InscriptionRequestDTO {
      */
 
     @Email(message = "Ingrese un email valido")
-    private String userEmail;
+    private String tutorEmail;
 
     @Positive(message = "No existe DNI negativo")
     @Min(value = 9999999, message = "Ingrese un DNI valido")
@@ -55,9 +51,9 @@ public class InscriptionRequestDTO {
     @Size(min = 3, max = 120)
     private String lastName;
 
-    private String userPhone;
+    private String tutorPhone;
 
-    private String userAddress;
+    private String tutorAddress;
 
     @Past(message = "Ingrese una fecha valida")
     private LocalDate dateOfBirth;

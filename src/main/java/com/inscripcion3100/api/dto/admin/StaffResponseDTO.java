@@ -11,8 +11,11 @@ import lombok.Setter;
 @NoArgsConstructor
 @AllArgsConstructor
 public class StaffResponseDTO {
+    private Long userId;
     private Long dni;
     private String firstName;
     private String lastName;
+    private String email;
+    private String numberPhone;
     private Role role;
 }

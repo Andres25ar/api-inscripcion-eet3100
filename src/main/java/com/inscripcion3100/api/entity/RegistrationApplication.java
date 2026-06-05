@@ -45,7 +45,7 @@ public class RegistrationApplication {
      *DATOS DEL SEGUNDO TUTOR
      */
     @Column(name = "tutor2_email")
-    private String userEmail;
+    private String tutorEmail;
 
     //dni de tutor 2
     @Column(name = "tutor2_dni", length = 8)
@@ -65,11 +65,11 @@ public class RegistrationApplication {
 
     //numero de telefono
     @Column(name = "tutor2_phone")
-    private String userPhone;
+    private String tutorPhone;
 
     //direccion
     @Column(name = "tutor2_address")
-    private String userAddress;
+    private String tutorAddress;
 
     //fecha de nacimiento
     @Column(name = "tutor2_birthdate")

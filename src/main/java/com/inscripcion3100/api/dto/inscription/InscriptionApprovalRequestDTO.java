@@ -12,6 +12,9 @@ import lombok.Setter;
 @NoArgsConstructor
 @AllArgsConstructor
 public class InscriptionApprovalRequestDTO {
+    @NotNull(message = "Necesario el ID de la inscripcion")
+    private Long inscriptionId;
+
     @NotNull(message = "Especifique si la inscripcion fue aprobada")
     private Boolean isApproved;
 

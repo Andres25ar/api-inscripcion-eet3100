@@ -1,4 +1,4 @@
-package com.inscripcion3100.api.dto.admin;
+package com.inscripcion3100.api.dto.user;
 
 import com.inscripcion3100.api.entity.Role;
 import jakarta.validation.constraints.NotNull;

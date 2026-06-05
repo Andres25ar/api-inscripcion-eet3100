@@ -20,6 +20,7 @@ public class InscriptionResponseDTO {
     private Date registrationDate;
     private StudentResponseDTO student;
     private CourseResponseDTO course;
+    //quizas solo basta el id del estudiante y el del curso
     private String institutionOfOrigin;
     private String pendingSubjects;
     private String pendingDocumentation;
@@ -28,13 +29,13 @@ public class InscriptionResponseDTO {
     /*
      *DATOS DEL SEGUNDO TUTOR
      */
-    private String userEmail;
+    private String tutorEmail;
     private Long dni;
     private String cuil;
     private String firstName;
     private String lastName;
-    private String userPhone;
-    private String userAddress;
+    private String tutorPhone;
+    private String tutorAddress;
     private LocalDate dateOfBirth;
     private String ocupation;
     private String relationship;
