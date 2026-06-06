@@ -2,6 +2,7 @@ package com.inscripcion3100.api.mapper;
 
 import com.inscripcion3100.api.dto.admin.StaffResponseDTO;
 import com.inscripcion3100.api.dto.auth.AuthResponseDTO;
+import com.inscripcion3100.api.dto.auth.RegisterRequestDTO;
 import com.inscripcion3100.api.dto.student.StudentResponseDTO;
 import com.inscripcion3100.api.dto.user.UserProfileDTO;
 import com.inscripcion3100.api.entity.Role;
@@ -45,7 +46,7 @@ public class UserMapper {
     }
 
     public static StaffResponseDTO toStaffDto(User user){
-        if (user == null || user.getRole().toString() == "TUTOR"){
+        if (user == null || user.getRole() == Role.TUTOR){
             return null;
         }
         return new StaffResponseDTO(
@@ -57,5 +58,28 @@ public class UserMapper {
                 user.getUserPhone(),
                 user.getRole()
         );
+    }
+
+    public static User toUserEntity(RegisterRequestDTO dto, String encryptedPassword) {
+        if (dto == null) {
+            return null;
+        }
+
+        User user = new User();
+
+        user.setDni(dto.getDni());
+        user.setCuil(dto.getCuil());
+        user.setFirstName(dto.getFirstName());
+        user.setLastName(dto.getLastName());
+        user.setUserEmail(dto.getEmail());
+        user.setPassword(encryptedPassword);
+        user.setUserPhone(dto.getUserPhone());
+        user.setUserAddress(dto.getUserAddress());
+        user.setDateOfBirth(dto.getDateOfBirth());
+        user.setOcupation(dto.getOcupation());
+        user.setRelationship(dto.getRelationship());
+        user.setRole(Role.TUTOR);
+
+        return user;
     }
 }

@@ -34,35 +34,35 @@ public class InscriptionRequestDTO {
      */
 
     @Email(message = "Ingrese un email valido")
-    private String tutorEmail;
+    private String tutor2Email;
 
     @Positive(message = "No existe DNI negativo")
     @Min(value = 9999999, message = "Ingrese un DNI valido")
     @Max(value = 100000000, message = "Ingrese un DNI valido")
-    private Long dni;
+    private Long tutor2Dni;
 
     //cuil del tutor 2
     @Size(max = 11)
-    private String cuil;
+    private String tutor2Cuil;
 
     @Size(min = 3, max = 120)
-    private String firstName;
+    private String tutor2FirstName;
 
     @Size(min = 3, max = 120)
-    private String lastName;
+    private String tutor2LastName;
 
-    private String tutorPhone;
+    private String tutor2Phone;
 
-    private String tutorAddress;
+    private String tutor2Address;
 
     @Past(message = "Ingrese una fecha valida")
-    private LocalDate dateOfBirth;
+    private LocalDate tutor2Birthdate;
 
-    private String ocupation;
+    private String tutor2Ocupation;
 
     private String relationship;
 
-    private StudiesAchieved studiesAchieved;
+    private StudiesAchieved tutor2StudiesAchieved;
 
     /*
      * DATOS DE SALUD

@@ -22,11 +22,11 @@ public class NotificationRequestDTO {
     private String content;
 
     //para notificar a todos los padre de un curso
-    private Long targetCourseId;
+    //private Long targetCourseId;
 
     //si se quiere notificar a un usuario especifico (quizas solo basta con el correo o el id)
     private Long userNotified;
 
-    @NotNull(message = "Es necesario saber si la notificacion es para directivos, caso contrario se enviara a tutores")
-    private Boolean notifyToAllDirectives;
+    /*@NotNull(message = "Es necesario saber si la notificacion es para directivos, caso contrario se enviara a tutores")
+    private Boolean notifyToAllDirectives;*/
 }

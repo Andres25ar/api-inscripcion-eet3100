@@ -45,46 +45,46 @@ public class RegistrationApplication {
      *DATOS DEL SEGUNDO TUTOR
      */
     @Column(name = "tutor2_email")
-    private String tutorEmail;
+    private String tutor2Email;
 
     //dni de tutor 2
     @Column(name = "tutor2_dni", length = 8)
-    private Long dni;
+    private Long tutor2Dni;
 
     //cuil del tutor 2
     @Column(name = "tutor2_cuil", length = 11)
-    private String cuil;
+    private String tutor2Cuil;
 
     //nombre del tutor 2
     @Column(name = "tutor2_first_name", length = 120)
-    private String firstName;
+    private String tutor2FirstName;
 
     //aperllido del tutor 2
     @Column(name = "tutor2_last_name", length = 120)
-    private String lastName;
+    private String tutor2LastName;
 
     //numero de telefono
     @Column(name = "tutor2_phone")
-    private String tutorPhone;
+    private String tutor2Phone;
 
     //direccion
     @Column(name = "tutor2_address")
-    private String tutorAddress;
+    private String tutor2Address;
 
     //fecha de nacimiento
     @Column(name = "tutor2_birthdate")
-    private LocalDate dateOfBirth;
+    private LocalDate tutor2Birthdate;
 
     //ocupacion
     @Column(name = "tutor2_ocupation")
-    private String ocupation;
+    private String tutor2Ocupation;
 
     @Column(name = "tutor2_relationship")
     private String relationship;
 
     @Enumerated(EnumType.STRING)
     @Column(name = "tutor2_studies_achieved")
-    private StudiesAchieved studiesAchieved;
+    private StudiesAchieved tutor2StudiesAchieved;
 
     /*
      * DATOS DE SALUD

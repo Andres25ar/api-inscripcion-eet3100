@@ -13,6 +13,7 @@ import java.util.Date;
 @NoArgsConstructor
 @AllArgsConstructor
 public class NotificationResponseDTO {
+    private Long notificationId;
     private Date date;
     private String content;
     private StaffResponseDTO sender;
