@@ -43,7 +43,7 @@ public class Student {
     @Column(name = "student_phone")
     private String studentPhone;
 
-    @Column(name = "student_email")
+    @Column(name = "student_email", unique = true)
     private String studentEmail;
 
     //fecha de nacimiento del alumno
