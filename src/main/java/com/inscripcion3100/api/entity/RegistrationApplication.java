@@ -127,8 +127,9 @@ public class RegistrationApplication {
     /*
      *  APROBACION DE LA ADMINISTRACION
      */
-    @Column(name = "is_approved", nullable = false)
-    private Boolean isApproved;
+    @Enumerated(EnumType.STRING)
+    @Column(name = "status", nullable = false)
+    private RegistrationStatus status;
 
     /*
      *  RELACIONES

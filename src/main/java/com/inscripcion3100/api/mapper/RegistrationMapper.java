@@ -6,6 +6,7 @@ import com.inscripcion3100.api.dto.inscription.InscriptionResponseDTO;
 import com.inscripcion3100.api.dto.student.StudentResponseDTO;
 import com.inscripcion3100.api.entity.Course;
 import com.inscripcion3100.api.entity.RegistrationApplication;
+import com.inscripcion3100.api.entity.RegistrationStatus;
 import com.inscripcion3100.api.entity.Student;
 
 import java.util.Date;
@@ -54,7 +55,7 @@ public class RegistrationMapper {
                 registration.getLegalDetails(),
                 registration.getLegalCertificate(),
                 //aprobacion de administracion
-                registration.getIsApproved()
+                registration.getStatus()
         );
     }
 
@@ -71,7 +72,7 @@ public class RegistrationMapper {
 
         registrationApplication.setCourse(course);
         registrationApplication.setStudent(student);
-        registrationApplication.setIsApproved(false);
+        registrationApplication.setStatus(RegistrationStatus.PENDING);
         registrationApplication.setRegistrationDate(new Date());
         registrationApplication.setInstitutionOfOrigin(inscriptionDTO.getInstitutionOfOrigin());
         registrationApplication.setPhotoAuthorization(inscriptionDTO.getPhotoAuthorization());

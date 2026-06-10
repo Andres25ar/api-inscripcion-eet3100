@@ -1,5 +1,6 @@
 package com.inscripcion3100.api.dto.auth;
 
+import com.inscripcion3100.api.entity.StudiesAchieved;
 import jakarta.validation.constraints.*;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -49,4 +50,6 @@ public class RegisterRequestDTO {
     private String ocupation;
 
     private String relationship;
+
+    private StudiesAchieved studiesAchieved;
 }

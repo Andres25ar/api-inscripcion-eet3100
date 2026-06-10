@@ -2,6 +2,7 @@ package com.inscripcion3100.api.dto.inscription;
 
 import com.inscripcion3100.api.dto.course.CourseResponseDTO;
 import com.inscripcion3100.api.dto.student.StudentResponseDTO;
+import com.inscripcion3100.api.entity.RegistrationStatus;
 import com.inscripcion3100.api.entity.StudiesAchieved;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -62,7 +63,7 @@ public class InscriptionResponseDTO {
     /*
      *  APROBACION DE LA ADMINISTRACION
      */
-    private Boolean isApproved;
+    private RegistrationStatus status;
 }
 
 
