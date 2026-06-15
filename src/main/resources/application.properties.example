@@ -1,0 +1,23 @@
+spring.application.name=api-inscripcion
+
+#token generado desde linux con: openssl rand -base64 32
+api-inscripcion.secret.jwt = xxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+
+#tiempo de duracion del tokern en milisegundos
+api-inscripcion.jwt.expiration=86400000
+
+#path inicial de la api que depende de la versionde la misma
+server.servlet.context-path=/api/v1
+
+#puerto de salida del servidor
+server.port=8080
+
+#datos de conexion a la base de datos
+spring.datasource.url=jdbc:postgresql://localhost:5432/tu_base_de_datos
+spring.datasource.username=postgres
+spring.datasource.password=tuPassword!
+spring.datasource.driver-class-name=org.postgresql.Driver
+
+spring.jpa.hibernate.ddl-auto=update
+spring.jpa.properties.hibernate.dialect=org.hibernate.dialect.PostgreSQLDialect
+spring.jpa.properties.hibernate.format_sql=true
