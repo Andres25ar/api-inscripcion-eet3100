@@ -84,9 +84,16 @@ public class NotificationServiceImpl implements INotificationService {
 
     @Override
     @Transactional
-    public void markAsRead(Long idUserNotification) {
+    public void markAsRead(Long idUserNotification, String userEmail) {
         NotificationForUser notification = notXUserRepository.findById(idUserNotification)
                 .orElseThrow(() -> new ResourceNotFoundException("NotificationForUser", "idUserNotification", idUserNotification));
+
+        User user = userRepository.findByUserEmail(userEmail)
+                .orElseThrow(() -> new ResourceNotFoundException("Usuario no encontrado"));
+
+        if(!notification.getReceiver().getUserId().equals(user.getUserId())){
+            throw new IllegalArgumentException("Violacion de seguridad: No tiene permiso para acceder a esta notificacion");
+        }
 
         notification.setIsRead(true);
         notXUserRepository.save(notification);

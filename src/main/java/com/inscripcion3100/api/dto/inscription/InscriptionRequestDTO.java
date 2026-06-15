@@ -1,5 +1,6 @@
 package com.inscripcion3100.api.dto.inscription;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
 import com.inscripcion3100.api.entity.StudiesAchieved;
 import jakarta.validation.constraints.*;
 import lombok.AllArgsConstructor;
@@ -56,6 +57,7 @@ public class InscriptionRequestDTO {
     private String tutor2Address;
 
     @Past(message = "Ingrese una fecha valida")
+    @JsonFormat(pattern = "yyyy-MM-dd", timezone = "America/Argentina/Salta")
     private LocalDate tutor2Birthdate;
 
     private String tutor2Ocupation;

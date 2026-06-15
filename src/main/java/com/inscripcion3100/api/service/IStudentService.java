@@ -10,7 +10,7 @@ public interface IStudentService {
 
     List<StudentResponseDTO> getStudentsByTutor(String tutorEmail);
 
-    StudentResponseDTO getStudentById(Long studentId);
+    StudentResponseDTO getStudentById(Long studentId, String userEmail);
 
-    StudentResponseDTO updateStudent (Long studentId, StudentRequestDTO requestDTO);
+    StudentResponseDTO updateStudent (Long studentId, StudentRequestDTO requestDTO, String userEmail);
 }

@@ -3,6 +3,7 @@ package com.inscripcion3100.api.service.impl;
 import com.inscripcion3100.api.dto.admin.StaffResponseDTO;
 import com.inscripcion3100.api.dto.student.StudentRequestDTO;
 import com.inscripcion3100.api.dto.student.StudentResponseDTO;
+import com.inscripcion3100.api.entity.Role;
 import com.inscripcion3100.api.entity.Student;
 import com.inscripcion3100.api.entity.User;
 import com.inscripcion3100.api.exception.ResourceNotFoundException;
@@ -58,18 +59,34 @@ public class StudentServiceImpl implements IStudentService {
 
     @Override
     @Transactional
-    public StudentResponseDTO getStudentById(Long studentId) {
+    public StudentResponseDTO getStudentById(Long studentId, String userEmail) {
         Student student = studentRepository.findById(studentId)
                 .orElseThrow(() -> new ResourceNotFoundException("Estudiante no encontrado"));
+
+        User user = userRepository.findByUserEmail(userEmail)
+                .orElseThrow(() -> new ResourceNotFoundException("Estudiante no encontrado"));
+
+        if (!student.getTutor1().getUserId().equals(user.getUserId())
+                && user.getRole()!=Role.SECRETARIO
+                && user.getRole()!=Role.ADMINISTRADOR){
+            throw new IllegalArgumentException("Violación de seguridad: No puede acceder a los datos de este alumno");
+        }
 
         return StudentMapper.toStudentResponseDTO(student);
     }
 
     @Override
     @Transactional
-    public StudentResponseDTO updateStudent(Long studentId, StudentRequestDTO requestDTO) {
+    public StudentResponseDTO updateStudent(Long studentId, StudentRequestDTO requestDTO, String userEmail) {
         Student student = studentRepository.findById(studentId)
                 .orElseThrow(() -> new ResourceNotFoundException("Estudiante no encontrado"));
+
+        User tutor = userRepository.findByUserEmail(userEmail)
+                .orElseThrow(() -> new ResourceNotFoundException("Usuario no encontrado"));
+
+        if (!student.getTutor1().getUserId().equals(tutor.getUserId())) {
+            throw new IllegalArgumentException("Violación de seguridad: No puede modificar un alumno que no está a su cargo.");
+        }
 
         student.setFirstName(requestDTO.getFirstName());
         student.setLastName(requestDTO.getLastName());

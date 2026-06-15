@@ -16,7 +16,7 @@ public interface IRegistrationService {
 
     void rejectRegistration(Long registrationId);
 
-    void replyToReassignment(Long registrationId, boolean accepted);
+    void replyToReassignment(Long registrationId, boolean accepted, String userEmail);
 
     List<InscriptionResponseDTO> getPendingRegistrations();
 
@@ -26,5 +26,5 @@ public interface IRegistrationService {
 
     InscriptionResponseDTO getRegistrationByStudentDniAndYear(Long studentDni, Integer year);
 
-    InscriptionResponseDTO getLatestRegistrationByStudent(Long studentId);
+    InscriptionResponseDTO getLatestRegistrationByStudent(Long studentId, String userEmail);
 }

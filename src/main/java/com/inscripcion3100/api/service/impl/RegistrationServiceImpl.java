@@ -46,8 +46,15 @@ public class RegistrationServiceImpl implements IRegistrationService {
     @Override
     @Transactional
     public InscriptionResponseDTO createRegistration(InscriptionRequestDTO request, String tutorEmail) {
+        User tutor = userRepository.findByUserEmail(tutorEmail)
+                .orElseThrow(() -> new ResourceNotFoundException("User", "userEmail", tutorEmail));
+
         Student student = studentRepository.findById(request.getStudentId())
                 .orElseThrow(() -> new RuntimeException("Estudiante no encontrado"));
+
+        if (!student.getTutor1().getUserId().equals(tutor.getUserId())) {
+            throw new IllegalArgumentException("Violación de seguridad: No tiene permisos para inscribir a este alumno porque no está a su cargo.");
+        }
 
         Course course = courseRepository.findById(request.getIdCourse())
                 .orElseThrow(() -> new RuntimeException("Curso no encontrado"));
@@ -133,8 +140,16 @@ public class RegistrationServiceImpl implements IRegistrationService {
 
     @Override
     @Transactional
-    public void replyToReassignment(Long registrationId, boolean accepted) {
-        RegistrationApplication registration = registrationRepository.findById(registrationId).orElseThrow();
+    public void replyToReassignment(Long registrationId, boolean accepted, String userEmail) {
+        RegistrationApplication registration = registrationRepository.findById(registrationId)
+                .orElseThrow(() -> new ResourceNotFoundException("Estudiante no encontrado"));
+
+        User user = userRepository.findByUserEmail(userEmail)
+                .orElseThrow(() -> new ResourceNotFoundException("Usuario no encontrado"));
+
+        if(!registration.getStudent().getTutor1().getUserId().equals(user.getUserId())){
+            throw new IllegalArgumentException("Violacion de seguridad: No puede responder a esta solicitud");
+        }
 
         if (registration.getStatus() != RegistrationStatus.REASSIGNED) {
             throw new IllegalArgumentException("La inscripción no está pendiente de reasignación.");
@@ -209,8 +224,18 @@ public class RegistrationServiceImpl implements IRegistrationService {
 
     @Override
     @Transactional(readOnly = true)
-    public InscriptionResponseDTO getLatestRegistrationByStudent(Long studentId) {
-        Student student = studentRepository.findById(studentId).orElseThrow();
+    public InscriptionResponseDTO getLatestRegistrationByStudent(Long studentId, String userEmail) {
+        Student student = studentRepository.findById(studentId)
+                .orElseThrow(() -> new ResourceNotFoundException("El alumno no encontrado"));
+
+        User user = userRepository.findByUserEmail(userEmail)
+                .orElseThrow(() -> new ResourceNotFoundException("Usuario no encontrado"));
+
+        if(!student.getTutor1().getUserId().equals(user.getUserId())
+                && user.getRole()!=Role.SECRETARIO
+                && user.getRole()!=Role.ADMINISTRADOR){
+            throw new IllegalArgumentException("Violacion de seguridad: No puede acceder a los datos de este alumno");
+        }
 
         RegistrationApplication latestReg = registrationRepository
                 .findFirstByStudentOrderByRegistrationDateDesc(student)

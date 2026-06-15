@@ -9,6 +9,9 @@ public class CourseMapper {
         if(course == null){
             return null;
         }
+
+        Long pending = Long.valueOf(0);
+
         return new CourseResponseDTO(
                 course.getIdCourse(),
                 course.getYear(),
@@ -17,7 +20,8 @@ public class CourseMapper {
                 course.getIsAdvancedCycle(),
                 course.getShift(),
                 course.getSpeciality(),
-                course.getAvailablePlaces()
+                course.getAvailablePlaces(),
+                pending
         );
     }
 

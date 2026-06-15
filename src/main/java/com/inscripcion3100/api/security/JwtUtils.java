@@ -31,7 +31,7 @@ public class JwtUtils {
         return Jwts.builder()
                 .setSubject((userDetails.getUsername()))    //guarda email de usuario
                 .setIssuedAt(new Date())                    //guarda fecha de creacion
-                .setExpiration(new Date(new Date()).getTime() + jwtExpirationMs)    //fecha de expiracion
+                .setExpiration(new Date(System.currentTimeMillis() + jwtExpirationMs))  //fecha de expiracion
                 .signWith(key(), SignatureAlgorithm.HS256)  //firma digital
                 .compact();     //compacta en un string
     }
