@@ -39,7 +39,7 @@ public class UserMapper {
                 user.getLastName(),
                 user.getUserPhone(),
                 user.getUserAddress(),
-                user.getDateOfBirth(),
+                user.getBirthdate(),
                 students,
                 user.getRole()
         );
@@ -75,7 +75,7 @@ public class UserMapper {
         user.setPassword(encryptedPassword);
         user.setUserPhone(dto.getUserPhone());
         user.setUserAddress(dto.getUserAddress());
-        user.setDateOfBirth(dto.getDateOfBirth());
+        user.setBirthdate(dto.getBirthdate());
         user.setOcupation(dto.getOcupation());
         user.setRelationship(dto.getRelationship());
         user.setRole(Role.TUTOR);

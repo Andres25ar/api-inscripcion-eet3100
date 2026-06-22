@@ -60,7 +60,7 @@ public class User {
 
     //fecha de nacimiento
     @Column(name = "date_of_birth", nullable = false)
-    private LocalDate dateOfBirth;
+    private LocalDate birthdate;
 
     //ocupacion
     @Column(name = "ocupation", nullable = false)

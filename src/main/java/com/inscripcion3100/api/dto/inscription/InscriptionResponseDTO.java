@@ -37,7 +37,7 @@ public class InscriptionResponseDTO {
     private String lastName;
     private String tutorPhone;
     private String tutorAddress;
-    private LocalDate dateOfBirth;
+    private LocalDate tutor2Birthdate;
     private String ocupation;
     private String relationship;
     private StudiesAchieved studiesAchieved;

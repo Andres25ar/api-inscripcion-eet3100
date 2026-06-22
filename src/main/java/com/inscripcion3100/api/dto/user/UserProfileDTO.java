@@ -24,7 +24,7 @@ public class UserProfileDTO {
     private String lastName;        //aperllido del usuario
     private String userPhone;       //numero de telefono
     private String userAddress;     //direccion
-    private LocalDate dateOfBirth;  //fecha de nacimiento
+    private LocalDate birthdate;  //fecha de nacimiento
     private List<StudentResponseDTO> studentsInCharge = new ArrayList<>(); //alumnos a cargo, guarda el id
     private Role role;
 }

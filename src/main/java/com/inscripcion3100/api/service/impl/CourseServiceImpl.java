@@ -54,12 +54,10 @@ public class CourseServiceImpl implements ICourseService {
     @Override
     @Transactional(readOnly = true)
     public List<CourseResponseDTO> getAvailableCourses(Integer year) {
-        // Traes todos los cursos (incluso si tienen 0 cupos, para que el padre vea que existe pero decida si anotarse a la lista de espera)
         List<Course> courses = courseRepository.findByYear(year);
 
         return courses.stream().map(course -> {
             CourseResponseDTO dto = CourseMapper.toCourseResponseDTO(course);
-            // Calculamos cuántos están en lista de espera
             Long pending = registrationRepository.countByCourseAndStatus(course, RegistrationStatus.PENDING);
             dto.setPendingRequests(pending);
             return dto;

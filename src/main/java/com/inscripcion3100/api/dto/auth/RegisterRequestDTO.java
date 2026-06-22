@@ -45,7 +45,7 @@ public class RegisterRequestDTO {
 
     @NotNull(message = "Fecha de nacimiento obligatoria")
     @Past(message = "No puede ingresar una fecha futura")
-    private LocalDate dateOfBirth;
+    private LocalDate birthdate;
 
     private String ocupation;
 
