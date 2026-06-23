@@ -14,4 +14,6 @@ public interface INotificationService {
     void markAsRead(Long idUserNotification, String userEmail);
 
     Long countUnreadNotifications(String userEmail);
+
+    List<NotificationResponseDTO> getAllMyNotifications(String userEmail);
 }

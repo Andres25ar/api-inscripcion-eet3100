@@ -8,9 +8,9 @@ import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 public class WebConfig implements WebMvcConfigurer {
     @Override
     public void addCorsMappings(CorsRegistry registry) {
-        registry.addMapping("/api/v1/**")
-                .allowedOrigins("http://localhost:")    //cambiar dependiendo el puerto de flutter o http://192.168.x.x:5555
-                .allowedMethods("GET", "PUT", "POST", "PUT", "DELETE")
+        registry.addMapping("/**")
+                .allowedOriginPatterns("*") // Permite cualquier IP/Dispositivo (Ideal para Emuladores y Celulares)
+                .allowedMethods("GET", "POST", "PUT", "DELETE", "OPTIONS")
                 .allowedHeaders("*")
                 .allowCredentials(true);
     }

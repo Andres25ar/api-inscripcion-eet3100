@@ -18,6 +18,7 @@ public class CourseMapper {
                 course.getStudyYear(),
                 course.getDivision(),
                 course.getIsAdvancedCycle(),
+                course.getMaxCapacity(),
                 course.getShift(),
                 course.getSpeciality(),
                 course.getAvailablePlaces(),

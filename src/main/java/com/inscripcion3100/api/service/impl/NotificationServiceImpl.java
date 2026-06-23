@@ -108,4 +108,18 @@ public class NotificationServiceImpl implements INotificationService {
 
         return unread;
     }
+
+    @Override
+    @Transactional(readOnly = true)
+    public List<NotificationResponseDTO> getAllMyNotifications(String userEmail) {
+        User user = userRepository.findByUserEmail(userEmail)
+                .orElseThrow(() -> new ResourceNotFoundException("Usuario no encontrado"));
+
+        List<NotificationForUser> allNotifications = notXUserRepository.findByReceiverOrderByNotification_NotificationDateDesc(user);
+
+        return allNotifications.stream()
+                .map(notifUser -> notifUser.getNotification())
+                .map(NotificationMapper::toNotificacionDTO)
+                .collect(Collectors.toList());
+    }
 }

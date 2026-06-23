@@ -15,7 +15,7 @@ public class CourseResponseDTO {
     private Integer studyYear;
     private Integer division;
     private Boolean advancedCycle;
-    //private Integer maxCapacity;
+    private Integer maxCapacity;
     private String shift;
     private String speciality;
     private Integer availablePlaces;

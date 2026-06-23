@@ -54,4 +54,11 @@ public class NotificationController {
         Long cnt = notificationService.countUnreadNotifications(userEmail);
         return ResponseEntity.ok(cnt);
     }
+
+    @GetMapping("/all")
+    public ResponseEntity<List<NotificationResponseDTO>> getAllMyNotifications(Authentication auth) {
+        String userEmail = auth.getName();
+        List<NotificationResponseDTO> allNotifications = notificationService.getAllMyNotifications(userEmail);
+        return ResponseEntity.ok(allNotifications);
+    }
 }

@@ -62,7 +62,7 @@ public class AuthServiceImpl implements IAuthService {
         user.setFirstName(requestDTO.getFirstName());
         user.setUserPhone(requestDTO.getUserPhone());
         user.setUserAddress(requestDTO.getUserAddress());
-        user.setDateOfBirth(requestDTO.getDateOfBirth());
+        user.setBirthdate(requestDTO.getBirthdate());
         user.setOcupation(requestDTO.getOcupation());
         user.setRelationship(requestDTO.getRelationship());
         user.setStudiesAchieved(requestDTO.getStudiesAchieved());

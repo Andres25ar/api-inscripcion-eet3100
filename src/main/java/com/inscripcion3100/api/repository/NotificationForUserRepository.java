@@ -12,5 +12,5 @@ public interface NotificationForUserRepository extends JpaRepository<Notificatio
     Long countByReceiverAndIsReadFalse(User receiver);
     List<NotificationForUser> findByReceiverAndIsReadFalse(User receiver);
     List<NotificationForUser> findByReceiver (User user);
-    
+    List<NotificationForUser> findByReceiverOrderByNotification_NotificationDateDesc(User receiver);
 }
